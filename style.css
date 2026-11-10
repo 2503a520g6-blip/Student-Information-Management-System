@@ -1,0 +1,213 @@
+/* SIMS - Student Information Management System Stylesheet */
+:root {
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Sidebar Active state */
+.nav-item.active {
+  background-color: #1e40af;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.25);
+}
+
+.nav-item.active i {
+  color: #ffffff;
+}
+
+.nav-item:not(.active):hover {
+  background-color: #f1f5f9;
+  color: #1e40af;
+}
+
+/* Glassmorphism & Cards */
+.sims-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.sims-card-hover:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Modal Animations */
+.modal-backdrop {
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal-content {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+/* Custom Table Styles */
+.sims-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sims-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.875rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.sims-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.sims-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.badge-warning {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.badge-info {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.badge-primary {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* Defaulter pulse indicator */
+.defaulter-dot {
+  position: relative;
+}
+.defaulter-dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  border: 1.5px solid white;
+}
+
+/* Print Stylesheet for Report Cards, Receipts, and Reports */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  #sidebar, 
+  #top-navbar, 
+  .no-print, 
+  button, 
+  .modal-backdrop,
+  .quick-actions,
+  #toast-container {
+    display: none !important;
+  }
+  
+  #main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  .print-area {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: #ffffff;
+  }
+
+  .sims-card {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+  
+  .page-break {
+    page-break-before: always;
+  }
+}
